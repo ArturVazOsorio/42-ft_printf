@@ -6,30 +6,30 @@
 /*   By: aantela- <aantela-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 04:10:57 by aantela-          #+#    #+#             */
-/*   Updated: 2026/05/24 19:52:31 by aantela-         ###   ########.fr       */
+/*   Updated: 2026/05/24 21:31:31 by aantela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_format_handle(char c, va_list *args)
+static int	ft_format_handle(char c, va_list *args, int fd)
 {
 	if (c == 'c')
-		return (ft_putchar((char)va_arg(*args, int)));
+		return (ft_putchar((char)va_arg(*args, int), fd));
 	else if (c == 's')
-		return (ft_putstr(va_arg(*args, char *)));
+		return (ft_putstr(va_arg(*args, char *), fd));
 	else if (c == 'p')
-		return (ft_putptr(va_arg(*args, void *)));
+		return (ft_putptr(va_arg(*args, void *), fd));
 	else if (c == 'd' || c == 'i')
-		return (ft_putnbr(va_arg(*args, int)));
+		return (ft_putnbr(va_arg(*args, int), fd));
 	else if (c == 'u')
-		return (ft_putnbr_uns(va_arg(*args, unsigned int)));
+		return (ft_putnbr_uns(va_arg(*args, unsigned int), fd));
 	else if (c == 'x')
-		return (ft_puthex(va_arg(*args, unsigned int), 'x'));
+		return (ft_puthex(va_arg(*args, unsigned int), 'x', fd));
 	else if (c == 'X')
-		return (ft_puthex(va_arg(*args, unsigned int), 'X'));
+		return (ft_puthex(va_arg(*args, unsigned int), 'X', fd));
 	else if (c == '%')
-		return (ft_putchar('%'));
+		return (ft_putchar('%', fd));
 	return (-1);
 }
 
@@ -49,7 +49,7 @@ int	ft_printf(const char *format, ...)
 			format++;
 			if (!*format)
 				break ;
-			ret = ft_format_handle(*format, &args);
+			ret = ft_format_handle(*format, &args, 1);
 		}
 		else
 			ret = write(1, format, 1);

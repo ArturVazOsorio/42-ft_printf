@@ -6,15 +6,15 @@
 /*   By: aantela- <aantela-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 06:33:34 by aantela-          #+#    #+#             */
-/*   Updated: 2026/05/21 03:45:55 by aantela-         ###   ########.fr       */
+/*   Updated: 2026/05/24 21:29:06 by aantela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr(char *s)
+int	ft_putstr(char *s, int fd)
 {
 	if (!s)
-		return (ft_putstr("(null)"));
-	return (write(1, s, ft_strlen(s)));
+		return (ft_putstr("(null)", fd));
+	return (write(fd, s, ft_strlen(s)));
 }

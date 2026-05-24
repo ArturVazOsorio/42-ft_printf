@@ -6,13 +6,13 @@
 /*   By: aantela- <aantela-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 05:27:31 by aantela-          #+#    #+#             */
-/*   Updated: 2026/05/21 04:41:43 by aantela-         ###   ########.fr       */
+/*   Updated: 2026/05/24 21:23:21 by aantela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(char c)
+int	ft_putchar(char c, int fd)
 {
-	return (write(1, &c, 1));
+	return (write(fd, &c, 1));
 }
