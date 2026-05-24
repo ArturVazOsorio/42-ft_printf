@@ -1,6 +1,0 @@
-[submodule "42-libft"]
-	path = 42-libft
-	url = https://github.com/ArturVazOsorio/42-libft
-[submodule "intra-uuid-77975b65-7787-4145-8b43-1648fd6be662-7378419-aantela-"]
-	path = intra-uuid-77975b65-7787-4145-8b43-1648fd6be662-7378419-aantela-
-	url = git@vogsphere.42porto.com:vogsphere/intra-uuid-77975b65-7787-4145-8b43-1648fd6be662-7378419-aantela-
