@@ -6,11 +6,21 @@
 /*   By: aantela- <aantela-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 06:33:34 by aantela-          #+#    #+#             */
-/*   Updated: 2026/05/24 21:29:06 by aantela-         ###   ########.fr       */
+/*   Updated: 2026/05/24 23:17:08 by aantela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static size_t	ft_strlen(const char *s)
+{
+	size_t i;
+
+	i = 0;
+	while(*s)
+		i++;
+	return (i);
+}
 
 int	ft_putstr(char *s, int fd)
 {

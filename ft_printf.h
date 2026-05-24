@@ -6,7 +6,7 @@
 /*   By: aantela- <aantela-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 04:07:46 by aantela-          #+#    #+#             */
-/*   Updated: 2026/05/24 21:25:19 by aantela-         ###   ########.fr       */
+/*   Updated: 2026/05/24 23:15:42 by aantela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdarg.h>
-# include "libft/libft.h"
 
 int	ft_printf(const char *format, ...);
 int	ft_putchar(char c, int fd);
