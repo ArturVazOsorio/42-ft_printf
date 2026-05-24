@@ -6,7 +6,7 @@
 /*   By: aantela- <aantela-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 04:10:57 by aantela-          #+#    #+#             */
-/*   Updated: 2026/05/24 21:31:31 by aantela-         ###   ########.fr       */
+/*   Updated: 2026/05/24 21:54:13 by aantela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,23 @@ int	ft_printf(const char *format, ...)
 	int		count;
 	int		ret;
 
+	if (!format)
+		return (-1);
 	va_start(args, format);
 	count = 0;
-	ret = 0;
 	while (*format)
 	{
 		if (*format == '%')
 		{
-			format++;
-			if (!*format)
-				break ;
-			ret = ft_format_handle(*format, &args, 1);
+			ret = ft_format_handle(*(++format), &args, 1);
 		}
 		else
 			ret = write(1, format, 1);
 		if (ret == -1)
 			return (va_end(args), -1);
 		count += ret;
-		format++;
+		if (*format)
+			format++;
 	}
 	va_end(args);
 	return (count);
