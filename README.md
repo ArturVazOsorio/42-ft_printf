@@ -33,7 +33,7 @@ The project was developed according to the 42 Norm and compiled using:
 ### Clone the repository
 
 ```bash
-git clone <https://github.com/ArturVazOsorio/42-ft_printf>
+git clone https://github.com/ArturVazOsorio/42-ft_printf
 cd ft_printf
 ```
 
