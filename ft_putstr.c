@@ -6,7 +6,7 @@
 /*   By: aantela- <aantela-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/19 06:33:34 by aantela-          #+#    #+#             */
-/*   Updated: 2026/05/24 23:17:08 by aantela-         ###   ########.fr       */
+/*   Updated: 2026/05/24 23:26:41 by aantela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static size_t	ft_strlen(const char *s)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
-	while(*s)
+	while (s[i])
 		i++;
 	return (i);
 }
