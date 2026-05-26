@@ -6,7 +6,7 @@
 /*   By: aantela- <aantela-@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/15 04:10:57 by aantela-          #+#    #+#             */
-/*   Updated: 2026/05/24 21:54:13 by aantela-         ###   ########.fr       */
+/*   Updated: 2026/05/26 03:22:06 by aantela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ static int	ft_format_handle(char c, va_list *args, int fd)
 	return (-1);
 }
 
+static int	ft_handle_percent(const char **format, va_list *args)
+{
+	(*format)++;
+	while (**format >= '0' && **format <= '9')
+		(*format)++;
+	return (ft_format_handle(**format, args, 1));
+}
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
@@ -46,9 +54,7 @@ int	ft_printf(const char *format, ...)
 	while (*format)
 	{
 		if (*format == '%')
-		{
-			ret = ft_format_handle(*(++format), &args, 1);
-		}
+			ret = ft_handle_percent(&format, &args);
 		else
 			ret = write(1, format, 1);
 		if (ret == -1)
